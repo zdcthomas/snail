@@ -11,11 +11,11 @@ end
 
 def traverse(matrix, result)
   len = matrix.length
-  while !matrix.empty?
-    result << matrix.shift
-    result << matrix.map{|array| array.pop}
-    result << matrix.pop.reverse
-    result << matrix.map{|array| array.shift}.reverse
+  until matrix.empty?
+    !matrix.empty? ? result << matrix.shift : nil
+    !matrix.empty? ? result << matrix.map{|array| array.pop} : nil
+    !matrix.empty? ? result << matrix.pop.reverse : nil
+    !matrix.empty? ? result << matrix.map{|array| array.shift}.reverse : nil
     traverse(matrix, result)
   end
   result.flatten
@@ -31,8 +31,3 @@ given = [
 ]
 print snail(given)
 
-
-
-
-
-require'pry';binding.pry
